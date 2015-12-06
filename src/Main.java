@@ -4,8 +4,8 @@ public class Main {
 
     public static void main(String[] args)
     {
-        Santa santa = new Santa();
-        SantaInstructions santaInstructions = new SantaInstructions(ADVENT_INPUT);
+        final SantaInstructions santaInstructions = new SantaInstructions(ADVENT_INPUT);
+        Santa santa = new Santa(() -> System.out.println("Entered basement at instruction " + santaInstructions.executedInstructionCount()));
 
         santaInstructions.instruct(santa);
 
