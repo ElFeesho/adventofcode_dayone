@@ -1,5 +1,7 @@
 import org.junit.Test;
 
+import java.util.Stack;
+
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
@@ -16,15 +18,28 @@ public class SantaFloorTest {
         public void goUpFloor() {
             currentFloor++;
         }
+
+        public void goDownFloor() {
+            currentFloor--;
+        }
     }
 
     private class SantaInstructions {
+        private Stack<Character> instructionStack = new Stack<>();
         public SantaInstructions(String instructions) {
-
+            for (char instruction : instructions.toCharArray()) {
+                instructionStack.add(instruction);
+            }
         }
 
         public void instruct(Santa santa) {
-            santa.goUpFloor();
+            if (instructionStack.pop() == '(') {
+                santa.goUpFloor();
+            }
+            else
+            {
+                santa.goDownFloor();
+            }
         }
     }
 
