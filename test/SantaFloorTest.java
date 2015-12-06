@@ -7,8 +7,24 @@ import static org.hamcrest.MatcherAssert.assertThat;
 public class SantaFloorTest {
 
     private class Santa {
+        private int currentFloor;
+
         public int currentFloor() {
-            return 0;
+            return currentFloor;
+        }
+
+        public void goUpFloor() {
+            currentFloor++;
+        }
+    }
+
+    private class SantaInstructions {
+        public SantaInstructions(String instructions) {
+
+        }
+
+        public void instruct(Santa santa) {
+            santa.goUpFloor();
         }
     }
 
@@ -28,6 +44,5 @@ public class SantaFloorTest {
         instructions.instruct(santa);
         assertThat(santa.currentFloor(), is(1));
     }
-
 
 }
