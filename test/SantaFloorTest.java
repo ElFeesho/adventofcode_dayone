@@ -70,4 +70,20 @@ public class SantaFloorTest {
         assertThat(santa.currentFloor(), is(-1));
     }
 
+    /**
+     (()) and ()() both result in floor 0.
+     ((( and (()(()( both result in floor 3.
+     ))((((( also results in floor 3.
+     ()) and ))( both result in floor -1 (the first basement level).
+     ))) and )())()) both result in floor -3.
+     */
+
+    @Test
+    public void firstExampleIsCorrect()
+    {
+        SantaInstructions instructions = new SantaInstructions("(())");
+        Santa santa = new Santa();
+        instructions.instruct(santa);
+        assertThat(santa.currentFloor(), is(0));
+    }
 }
