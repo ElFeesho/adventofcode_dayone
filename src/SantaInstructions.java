@@ -1,6 +1,8 @@
 import java.util.Stack;
 
 class SantaInstructions {
+    private int executedInstructions = 0;
+
     private Stack<Character> instructionStack = new Stack<>();
     public SantaInstructions(String instructions) {
         for (char instruction : instructions.toCharArray()) {
@@ -10,6 +12,7 @@ class SantaInstructions {
 
     public void instruct(Santa santa) {
         for(Character instruction : instructionStack) {
+            executedInstructions++;
             if (instruction == '(') {
                 santa.goUpFloor();
             } else {
@@ -19,6 +22,6 @@ class SantaInstructions {
     }
 
     public int executedInstructionCount() {
-        return 0;
+        return executedInstructions;
     }
 }
