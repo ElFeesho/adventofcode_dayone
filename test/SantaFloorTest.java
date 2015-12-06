@@ -33,12 +33,12 @@ public class SantaFloorTest {
         }
 
         public void instruct(Santa santa) {
-            if (instructionStack.pop() == '(') {
-                santa.goUpFloor();
-            }
-            else
-            {
-                santa.goDownFloor();
+            for(Character instruction : instructionStack) {
+                if (instruction == '(') {
+                    santa.goUpFloor();
+                } else {
+                    santa.goDownFloor();
+                }
             }
         }
     }
