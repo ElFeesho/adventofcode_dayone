@@ -20,5 +20,14 @@ public class SantaFloorTest {
         assertThat(santa.currentFloor(), is(0));
     }
 
+    @Test
+    public void santaWilBeToldToGoUpAFloorWhenHisInstructionsTellHimTo()
+    {
+        SantaInstructions instructions = new SantaInstructions("(");
+        Santa santa = new Santa();
+        instructions.instruct(santa);
+        assertThat(santa.currentFloor(), is(1));
+    }
+
 
 }
