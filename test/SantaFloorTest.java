@@ -1,47 +1,10 @@
 import org.junit.Test;
 
-import java.util.Stack;
-
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 
 public class SantaFloorTest {
-
-    private class Santa {
-        private int currentFloor;
-
-        public int currentFloor() {
-            return currentFloor;
-        }
-
-        public void goUpFloor() {
-            currentFloor++;
-        }
-
-        public void goDownFloor() {
-            currentFloor--;
-        }
-    }
-
-    private class SantaInstructions {
-        private Stack<Character> instructionStack = new Stack<>();
-        public SantaInstructions(String instructions) {
-            for (char instruction : instructions.toCharArray()) {
-                instructionStack.add(instruction);
-            }
-        }
-
-        public void instruct(Santa santa) {
-            for(Character instruction : instructionStack) {
-                if (instruction == '(') {
-                    santa.goUpFloor();
-                } else {
-                    santa.goDownFloor();
-                }
-            }
-        }
-    }
 
     @Test
     public void santaStartsOnFloorZero()
