@@ -45,4 +45,14 @@ public class SantaFloorTest {
         assertThat(santa.currentFloor(), is(1));
     }
 
+
+    @Test
+    public void santaWilBeToldToGoDownAFloorWhenHisInstructionsTellHimTo()
+    {
+        SantaInstructions instructions = new SantaInstructions(")");
+        Santa santa = new Santa();
+        instructions.instruct(santa);
+        assertThat(santa.currentFloor(), is(-1));
+    }
+
 }
