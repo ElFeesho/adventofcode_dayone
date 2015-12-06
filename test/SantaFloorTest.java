@@ -124,5 +124,14 @@ public class SantaFloorTest {
         assertThat(capturingSantaListener.fired, is(true));
     }
 
+    @Test
+    public void santasInstructionsKeepTrackOfHowManyInstructionsHaveBeenExecuted() {
+        SantaInstructions instructions = new SantaInstructions(")");
+        assertThat(instructions.executedInstructionCount(), is(0));
+        CapturingSantaListener capturingSantaListener = new CapturingSantaListener();
+        Santa santa = new Santa(capturingSantaListener);
+        instructions.instruct(santa);
+        assertThat(instructions.executedInstructionCount(), is(1));
+    }
 
 }

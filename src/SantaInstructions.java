@@ -17,4 +17,8 @@ class SantaInstructions {
             }
         }
     }
+
+    public int executedInstructionCount() {
+        return 0;
+    }
 }
