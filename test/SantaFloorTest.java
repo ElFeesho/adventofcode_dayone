@@ -86,4 +86,13 @@ public class SantaFloorTest {
         instructions.instruct(santa);
         assertThat(santa.currentFloor(), is(0));
     }
+
+    @Test
+    public void secondExampleIsCorrect()
+    {
+        SantaInstructions instructions = new SantaInstructions("()()");
+        Santa santa = new Santa();
+        instructions.instruct(santa);
+        assertThat(santa.currentFloor(), is(0));
+    }
 }
