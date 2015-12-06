@@ -95,4 +95,22 @@ public class SantaFloorTest {
         instructions.instruct(santa);
         assertThat(santa.currentFloor(), is(0));
     }
+
+    @Test
+    public void thirdExampleIsCorrect()
+    {
+        SantaInstructions instructions = new SantaInstructions("(((");
+        Santa santa = new Santa();
+        instructions.instruct(santa);
+        assertThat(santa.currentFloor(), is(3));
+    }
+
+    @Test
+    public void fourthExampleIsCorrect()
+    {
+        SantaInstructions instructions = new SantaInstructions("(()(()(");
+        Santa santa = new Santa();
+        instructions.instruct(santa);
+        assertThat(santa.currentFloor(), is(3));
+    }
 }
